@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2023.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="210" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([NO], &quot;&lt;2&quot;, &quot;1&quot;)&#xA;&#xA;" field="NO" size="254" type="V_WString" />
+            <FormulaField expression="Replace([NO2], &quot;&lt;2&quot;, &quot;3&quot;)" field="NO2" size="254" type="V_WString" />
+            <FormulaField expression="Replace([PM10], &quot;&lt;2&quot;, &quot;3&quot;)" field="PM10" size="254" type="V_WString" />
+            <FormulaField expression="Replace([PM2.5], &quot;&lt;2&quot;, &quot;3&quot;)" field="PM2.5" size="254" type="V_WString" />
+            <FormulaField expression="Replace([CO2], &quot;&lt;2&quot;, &quot;3&quot;)" field="CO2" size="254" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NO = Replace([NO], "&lt;2", "1")
+
+
+NO2 = Replace([NO2], "&lt;2", "3")
+PM10 = Replace([...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="306" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="NO" selected="True" type="Int32" size="4" />
+            <SelectField field="NO2" selected="True" type="Int32" size="4" />
+            <SelectField field="PM10" selected="True" type="Int32" size="4" />
+            <SelectField field="PM2.5" selected="True" type="Int32" size="4" />
+            <SelectField field="CO2" selected="True" type="Int32" size="4" />
+            <SelectField field="TEMP" selected="True" type="Float" size="4" />
+            <SelectField field="HUMI" selected="True" type="Float" size="4" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="438" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="If IsNull([NO]) then Average([NO]) else [NO] endif&#xA;" field="NO" size="4" type="Int32" />
+            <FormulaField expression="If IsNull([NO2]) then Average([NO2]) else [NO2] endif&#xA;" field="NO2" size="4" type="Int32" />
+            <FormulaField expression="If IsNull([PM10]) then Average([PM10]) else [PM10] endif&#xA;" field="PM10" size="4" type="Int32" />
+            <FormulaField expression="If IsNull([PM2.5]) then Average([PM2.5]) else [PM2.5] endif&#xA;" field="PM2.5" size="4" type="Int32" />
+            <FormulaField expression="If IsNull([CO2]) then Average([CO2]) else [CO2] endif&#xA;" field="CO2" size="4" type="Int32" />
+            <FormulaField expression="If IsNull([TEMP]) then Average([TEMP]) else [TEMP] endif&#xA;" field="TEMP" size="4" type="Float" />
+            <FormulaField expression="If IsNull([HUMI]) then Average([HUMI]) else [HUMI] endif&#xA;" field="HUMI" size="4" type="Float" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>NO = If IsNull([NO]) then Average([NO]) else [NO] endif
+
+NO2 = If IsNull([NO2]) ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="42" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File RecordLimit="" SearchSubDirs="False" FileFormat="0" OutputFileName="">C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv</File>
+          <FormatSpecificOptions>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreErrors>False</IgnoreErrors>
+            <AllowShareWrite>False</AllowShareWrite>
+            <ImportLine>1</ImportLine>
+            <FieldLen>254</FieldLen>
+            <SingleThreadRead>False</SingleThreadRead>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <Delimeter>;</Delimeter>
+            <QuoteRecordBreak>False</QuoteRecordBreak>
+            <CodePage>28591</CodePage>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>qualite-de-lair-mesuree-dans-la-station-auber (1).csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DATE/HEURE" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="NO" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="NO2" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="PM10" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="PM2.5" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="CO2" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="TEMP" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+            <Field name="HUMI" size="254" source="File: C:\Users\rmabs\Downloads\qualite-de-lair-mesuree-dans-la-station-auber (1).csv" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="582" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">C:\documents\projet auber\donnée_nettoyée.csv</File>
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+            <WriteBOM>True</WriteBOM>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>donnée_nettoyée.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Workflow des données de la qualité de l'air de auber</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="807ec348-2bd4-4b9c-a57c-068bd2e579da" />
+      <Telemetry>
+        <PreviousWorkflowId value="710dab9f-b2f8-4d21-94bf-1e3e85ba031c" />
+        <OriginWorkflowId value="d672fc6a-d4db-457b-a87f-7c7656f764ca" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
